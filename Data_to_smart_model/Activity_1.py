@@ -6,7 +6,7 @@ from textblob import TextBlob
 colorama.init()
 
 # Emojis for the start of the program
-print(f"{Fore.CYAN} 🐍 Welcome to Sentiment Spy! 🐍{Style.RESET_ALL}")
+print(f"{Fore.CYAN} 👋 Welcome to Sentiment Spy! 🕵️{Style.RESET_ALL}")
 
 user_name = input(f"{Fore.MAGENTA}Please enter your name: {Style.RESET_ALL}").strip()
 if not user_name:
@@ -52,7 +52,7 @@ while True:
                     emoji = "😞"
                 else:
                     color = Fore.YELLOW
-                    emoji = "😭"
+                    emoji = "😐"  # Fixed: was 😭, should be 😐 for Neutral
 
                 print(f"{idx}. {color}{emoji} {text} "
                     f"Polarity: {polarity:.2f}, {sentiment_type}{Style.RESET_ALL}")
@@ -71,7 +71,7 @@ while True:
     else:
         sentiment_type = "Neutral"
         color = Fore.YELLOW
-        emoji = "😭"
+        emoji = "😐"  # Fixed: was 😭, should be 😐 for Neutral
 
     # Store in history
     conversation_history.append((user_input, polarity, sentiment_type))
