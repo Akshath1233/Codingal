@@ -35,4 +35,19 @@ def show(recs, name):
     for i, (t, p) in enumerate(recs, 1):
         print(f"{Fore.CYAN}{i}. {t} (Polarity: {p :. 2f}, {senti(p)})")
         return out if out else "No suitable movie recommendations found."
+def show(recs, name):
+    print(Fore.YELLOW + f"\n f AI-Analyzed Movie Recommendations for {name}:")
+    for i, (t, p) in enumerate(recs, 1):
+        print(f"{Fore.CYAN}{i}. {t} (Polarity: {p :. 2f}, {senti(p)})")
 
+def get_genre():
+    print(Fore.GREEN + "Available Genres: ", end="")
+    for i, g in enumerate(genres, 1): print(f"{Fore.CYAN}{i}. {g}")
+print()
+while True:
+x = input(Fore. YELLOW + "Enter genre number or name: ") .strip()
+if x.isdigit() and 1 <= int(x) <= len(genres): return genres[int(x) - 1]
+x = x.title()
+if x in genres: return x
+print(Fore.RED + "Invalid input. Try again. \n")
+   
